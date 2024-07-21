@@ -28,8 +28,7 @@ function Home() {
   };
 
   const handleProductDetail = (product) => {
-    console.log(product);
-    navigate(`/product/${product.name}-id-${product._id}`);
+    navigate(`/product-detail/${product.name}-id-${product._id}`);
   };
 
   return (

@@ -15,7 +15,7 @@ import logo from "../assets/images/white_logo_no_background.png";
 import { ShoppingCart } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import { Avatar, Button } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { userLogout } from "../store/features/userSlice";
 
 export default function Navbar({ theme }) {
@@ -30,6 +30,8 @@ export default function Navbar({ theme }) {
 
   const cartCount = useSelector((state) => state.cart.count);
   const dispatch = useDispatch();
+
+  const navigate = useNavigate();
 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -140,7 +142,14 @@ export default function Navbar({ theme }) {
           >
             <MenuIcon className="text-white" />
           </IconButton>
-          <img src={logo} alt="logo" width={100} height={100} className="p-2" />
+          <img
+            src={logo}
+            alt="logo"
+            width={100}
+            height={100}
+            className="p-1 cursor-pointer"
+            onClick={() => navigate("/")}
+          />
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <IconButton

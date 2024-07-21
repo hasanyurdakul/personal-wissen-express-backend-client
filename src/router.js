@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound";
 import LayoutWithNavbar from "./layouts/LayoutWithNavbar";
 import LayoutWithoutNavbar from "./layouts/LayoutWithoutNavbar";
 import ProductDetail from "./pages/ProductDetail";
+import CartDetail from "./pages/CartDetail";
 const { createBrowserRouter } = require("react-router-dom");
 
 const router = createBrowserRouter([
@@ -20,8 +21,12 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/product-detail/:productName",
+        path: "/product-detail/:productDetailParams",
         element: <ProductDetail />,
+      },
+      {
+        path: "/cart-detail",
+        element: <CartDetail />,
       },
     ],
   },
@@ -49,11 +54,11 @@ const router = createBrowserRouter([
         path: "/sitemap",
         element: <Sitemap />,
       },
-      {
-        path: "*",
-        element: <NotFound />,
-      },
     ],
+  },
+  {
+    path: "*",
+    element: <NotFound />,
   },
 ]);
 
