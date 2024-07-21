@@ -1,29 +1,35 @@
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import React from "react";
 
-function ProductCard() {
+function ProductCard({ handleAddToCart, product, onClick }) {
   return (
-    <div class="max-w-sm rounded overflow-hidden shadow-lg">
-      <div class="p-4 flex flex-col items-center justify-center">
-        <h2 class="font-semibold text-2xl my-2 leading-none">NIKE SHOES</h2>
-        <small class="uppercase text-gray-600">
-          The best shoes in marketplace
-        </small>
-      </div>
-      <img
-        src="https://c4.wallpaperflare.com/wallpaper/601/305/95/nike-full-hd-wallpaper-preview.jpg"
-        alt="product"
-      />
-      <div class="flex justify-center items-center mb-3">
-        <div class="rounded-full h-4 w-4 flex items-center justify-center bg-red-700 border-2 border-white mr-1"></div>
-        <div class="rounded-full h-4 w-4 flex items-center justify-center bg-blue-700 border-2 border-white mr-1"></div>
-        <div class="rounded-full h-4 w-4 flex items-center justify-center bg-green-700 border-2 border-white mr-1"></div>
-        <div class="rounded-full h-5 w-5 flex items-center justify-center bg-black border-2"></div>
-      </div>
-      <div class="flex justify-between items-center px-4 py-3">
-        <span class="text-xl">$30</span>
-        <span class="rounded-full py-2 px-8 border-solid border-2 border-gray-400">
-          ADD TO CART
-        </span>
+    <div>
+      <div className="bg-white shadow-md w-52 overflow-hidden rounded-2xl">
+        <div className="relative">
+          <img
+            src={product.image}
+            alt={product.name}
+            className="h-56 object-cover cursor-pointer hover:blur-sm transition-all duration-300   "
+            onClick={() => onClick(product)}
+          />
+        </div>
+
+        <div className="pt-3 pb-4 px-3.5">
+          <h1 className="text-lg font-semibold line-clamp-2">{product.name}</h1>
+          <p className=" mb-2">
+            <span className="text-slate-950 mr-3 ">₺{product.price}</span>
+          </p>
+          <p className="line-clamp-3 mb-2 text-xs">{product.description}</p>
+          <button
+            onClick={() => handleAddToCart()}
+            className="bg-slate-900 text-slate-400 uppercase font-semibold text-sm py-1 px-2 rounded-lg flex text-center "
+          >
+            <div className="flex justify-center items-center ">
+              <span> Add to cart</span>
+              <AddShoppingCartIcon fontSize="small" className="ml-2" />
+            </div>
+          </button>
+        </div>
       </div>
     </div>
   );

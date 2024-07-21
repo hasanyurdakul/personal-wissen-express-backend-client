@@ -7,6 +7,7 @@ import Sitemap from "./pages/Sitemap";
 import NotFound from "./pages/NotFound";
 import LayoutWithNavbar from "./layouts/LayoutWithNavbar";
 import LayoutWithoutNavbar from "./layouts/LayoutWithoutNavbar";
+import ProductDetail from "./pages/ProductDetail";
 const { createBrowserRouter } = require("react-router-dom");
 
 const router = createBrowserRouter([
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/product-detail/:productName",
+        element: <ProductDetail />,
       },
     ],
   },

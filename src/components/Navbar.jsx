@@ -28,6 +28,7 @@ export default function Navbar({ theme }) {
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
   const username = useSelector((state) => state.user.username);
 
+  const cartCount = useSelector((state) => state.cart.count);
   const dispatch = useDispatch();
 
   const handleProfileMenuOpen = (event) => {
@@ -93,7 +94,7 @@ export default function Navbar({ theme }) {
     >
       <MenuItem>
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="error">
+          <Badge badgeContent={cartCount} color="error">
             <MailIcon />
           </Badge>
         </IconButton>
@@ -127,9 +128,9 @@ export default function Navbar({ theme }) {
   );
 
   return (
-    <Box sx={{ flexGrow: 1 }} className={"w-full"}>
-      <AppBar position="static">
-        <Toolbar>
+    <Box sx={{ flexGrow: 1 }} className="w-full p-1">
+      <AppBar position="static" color="inherit" className="rounded-lg">
+        <Toolbar className="bg-slate-900 rounded-lg ">
           <IconButton
             size="large"
             edge="start"
@@ -137,18 +138,18 @@ export default function Navbar({ theme }) {
             aria-label="open drawer"
             sx={{ mr: 2 }}
           >
-            <MenuIcon />
+            <MenuIcon className="text-white" />
           </IconButton>
           <img src={logo} alt="logo" width={100} height={100} className="p-2" />
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <IconButton
               size="large"
-              aria-label="show 17 new notifications"
+              aria-label={`show ${cartCount} products`}
               color="inherit"
             >
-              <Badge badgeContent={17} color="error" className="mr-2">
-                <ShoppingCart />
+              <Badge badgeContent={cartCount} color="error" className="mr-2">
+                <ShoppingCart className="text-white" />
               </Badge>
             </IconButton>
 
@@ -167,9 +168,11 @@ export default function Navbar({ theme }) {
                 </IconButton>
               </>
             ) : (
-              <Button size="small" variant="outlined" color="inherit">
-                <Link to={"/login"}>Login</Link>
-              </Button>
+              <button className="  p-2 rounded-lg bg-white">
+                <Link to={"/login"} className="text-slate-900 font-medium">
+                  Login
+                </Link>
+              </button>
             )}
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>

@@ -5,7 +5,7 @@ import router from "./router";
 
 function App() {
   return (
-    <>
+    <div className="bg-slate-200">
       <RouterProvider router={router} />
       <ToastContainer
         position="bottom-right"
@@ -20,7 +20,7 @@ function App() {
         theme="light"
         transition={Bounce}
       />
-    </>
+    </div>
   );
 }
 
