@@ -1,0 +1,13 @@
+{
+  "files.exclude": {
+    "node_modules/": false,
+    "dist/": false,
+    ".vscode/": false,
+    "**/.gitignore": false,
+    "**/.DS_Store": false,
+    "**/package.json": false,
+    "**/package-lock.json": false,
+    "**/README.md": false,
+    "**/tailwind.config.js": false
+  }
+}
