@@ -156,6 +156,7 @@ export default function Navbar({ theme }) {
               size="large"
               aria-label={`show ${cartCount} products`}
               color="inherit"
+              onClick={() => navigate("/cart-detail")}
             >
               <Badge badgeContent={cartCount} color="error" className="mr-2">
                 <ShoppingCart className="text-white" />

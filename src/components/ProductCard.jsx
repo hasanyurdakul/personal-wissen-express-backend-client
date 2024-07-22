@@ -21,7 +21,7 @@ function ProductCard({ handleAddToCart, product, onClick }) {
           </p>
           <p className="line-clamp-3 mb-2 text-xs">{product.description}</p>
           <button
-            onClick={() => handleAddToCart()}
+            onClick={() => handleAddToCart(product)}
             className="bg-slate-900 text-slate-400 uppercase font-semibold text-sm py-1 px-2 rounded-lg flex justify-center items-center "
           >
             <span> Add to cart</span>

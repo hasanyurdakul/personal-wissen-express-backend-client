@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../store/features/cartSlice";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 function Home() {
   const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
   const dispatch = useDispatch();
@@ -23,8 +24,11 @@ function Home() {
     getProducts();
   }, []);
 
-  const handleAddToCart = () => {
-    dispatch(addToCart());
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+    toast.success("Product added to cart.", {
+      autoClose: 2000,
+    });
   };
 
   const handleProductDetail = (product) => {
